@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig'%}
+{%block body%}
+{{parent()}}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="page-header margin-none">
+                <h2 class="padding-none">Usuarios</h2>
+            </div>
+                <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre de Usuario</th>
+                            <th>Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Creado</th>
+                            <th>Actualizado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in usuarios %}
+                        <tr>
+                            <td>{{usuario.nombreUsuario}}</td>
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.primerApellido}}</td>
+                            <td>{{usuario.segundoApellido}}</td>
+                            <td>{{usuario.email}}</td>
+                            <td>
+                                {%if usuario.rol =='ROL_ADMIN'%}
+                                <strong>Administrador</strong>
+                                {%elseif usuario.rol =='ROL_PROFESOR'%}
+                                <strong>Profesor</strong>
+                                {%elseif usuario.rol =='ROL_ESTUDIANTE'%}
+                                <strong>Estudiante</strong>
+                                {%elseif usuario.rol =='ROL_FANILIAR'%}
+                                <strong>Familiar</strong>
+                                {%endif%}
+                            </td>
+                            <td>{{usuario.fueCreado|date('d-m-Y H:i')}}</td>
+                            <td>{{usuario.fueActualizado|date('d-m-Y H:i')}}</td>
+                            <td class="actions">
+                                <a href="#" class="btn btn-sm btn-info">Ver</a>
+                                <a href="#" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="#" class="btn btn-sm btn-danger btn-delete">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock%}

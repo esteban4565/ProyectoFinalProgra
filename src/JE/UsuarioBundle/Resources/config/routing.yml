@@ -1,0 +1,23 @@
+je_usuario_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: JEUsuarioBundle:Default:index }
+    
+je_usuario_index:
+    path:     /usuario/index
+    defaults: { _controller: JEUsuarioBundle:Usuario:index }
+
+je_usuario_agregar:
+    path:     /usuario/agregar
+    defaults: { _controller: JEUsuarioBundle:Usuario:agregar }
+
+je_usuario_editar:
+    path:     /usuario/editar/{id}
+    defaults: { _controller: JEUsuarioBundle:Usuario:editar }
+
+je_usuario_ver:
+    path:     /usuario/ver/{id}
+    defaults: { _controller: JEUsuarioBundle:Usuario:ver }
+
+je_usuario_eliminar:
+    path:     /usuario/eliminar/{id}
+    defaults: { _controller: JEUsuarioBundle:Usuario:eliminar }
